@@ -1,0 +1,71 @@
+<head>
+  <script src='https://meet.jit.si/external_api.js'></script>
+</head>
+<body>
+<style>
+.orange {
+display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.orange:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+	background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+.orange:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+	background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+</style>
+    <div style="background-image: url(https://media.istockphoto.com/photos/the-black-and-silver-are-light-gray-with-white-the-gradient-is-the-picture-id1227082257?b=1&k=6&m=1227082257&s=170667a&w=0&h=fObmQKuuiWTBrNKc7jc8TSGDkPZOlemWb7Nq65s6R-k=);background-repeat: no-repeat;background-size: cover;">
+ <div><center> <img src="img_tree.png"></div></center>
+ <div> <h1 style="color: white"><center>MEETING</center></h1></div>
+
+<center><button id="start" type="button" class="orange" style="position: relative;height: 50px;width: 200px;">Start New Meeting</button>
+<div id="jitsi-container">
+</div>
+ 
+<script>
+var button = document.querySelector('#start');
+var container = document.querySelector('#jitsi-container');
+var api = null;
+ 
+button.addEventListener('click', () => {
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var stringLength = 30;
+ 
+    function pickRandom() {
+    return possible[Math.floor(Math.random() * possible.length)];
+    }
+ 
+var randomString = Array.apply(null, Array(stringLength)).map(pickRandom).join('');
+ 
+    var domain = "meet.jit.si";
+    var options = {
+        "roomName": randomString,
+        "parentNode": container,
+        "width": 600,
+        "height": 600,
+    };
+    api = new JitsiMeetExternalAPI(domain, options);
+});
+ 
+</script>
+</div>
+</body>
+</html>

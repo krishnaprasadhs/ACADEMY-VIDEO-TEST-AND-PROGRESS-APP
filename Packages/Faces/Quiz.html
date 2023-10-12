@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script defer src="face-api.min.js"></script>
+  <script defer src="script.js"></script>
+  <script defer src="quiz.js"></script>
+</head>
+<body>
+<style>
+       body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    canvas {
+      position: absolute;
+	  display: none;
+    } 
+        .container {
+            border: 3px solid black;
+            border-radius: 10px;
+            width: 60%;
+            padding: 20px;
+            display: none;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+        
+    </style>
+	<div class="container">
+        Q1 what is 100+200?<hr>
+        <input type="radio" name="question1" id="correct1">300<br>
+        <input type="radio" name="question1">400<br>
+        <input type="radio" name="question1">150<br>
+        <input type="radio" name="question1">600<br>
+        <button class="next" onclick="next(1)">NEXT</button>
+    </div>
+
+    <div class="container">
+        Q2 what is 100+300?<hr>
+        <input type="radio" name="question2" >300<br>
+        <input type="radio" name="question2" id="correct2">400<br>
+        <input type="radio" name="question2">150<br>
+        <input type="radio" name="question2">600<br>
+        <button class="next" onclick="next(2)">NEXT</button>
+    </div>
+
+    <div class="container">
+        Q3 what is 300+200?<hr>
+        <input type="radio" name="question3" >300<br>
+        <input type="radio" name="question3">400<br>
+        <input type="radio" name="question3">150<br>
+        <input type="radio" name="question3" id="correct3">500<br>
+        <button onclick="result()">SUBMIT QUIZ</button>
+    </div>
+	<div align="right">
+	<video id="video" width="300" height="600" autoplay muted></video>
+</div>
+	
+</body>
+</html>
